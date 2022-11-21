@@ -7,6 +7,7 @@ Based on Rust-webpack-template repository. https://github.com/rustwasm/rust-webp
 Also referred to Woyten's Microwave for integrating nannou for web. https://woyten.github.io/microwave/launcher.html .
 https://github.com/nannou-org/nannou/pull/811/files .
 
+![](thumbnail.png)
 
 
 ## files
