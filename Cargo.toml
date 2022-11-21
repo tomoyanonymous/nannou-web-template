@@ -1,8 +1,8 @@
 # You must change these to your own details.
 [package]
-name = "nannou_web_test"
-description = "My super awesome Rust, WebAssembly, and Webpack project!"
-version = "0.1.0"
+name = "nannou_web_template"
+description = "template repository to run nannou app both in native app and web browser."
+version = "0.0.1"
 authors = ["You <you@example.com>"]
 categories = ["wasm"]
 readme = "README.md"
@@ -23,23 +23,14 @@ crate-type = ["cdylib"]
 # so it's only enabled in release mode.
 lto = true
 
-# [features]
-# If you uncomment this line, it will enable `wee_alloc`:
-#default = ["wee_alloc"]
-
 [dependencies]
 # The `wasm-bindgen` crate provides the bare minimum functionality needed
 # to interact with JavaScript.
-wasm-bindgen = "0.2.45"
-# nannou = {version = "0.18.0", features = ["wasm-experimental"]}
-nannou = { version ="0.18.1", path = "/Users/tomoya/codes/nannou/nannou", features =["wasm-experimental"]}
-
-# `wee_alloc` is a tiny allocator for wasm that is only ~1K in code size
-# compared to the default allocator's ~10K. However, it is slower than the default
-# allocator, so it's not enabled by default.
-wee_alloc = { version = "0.4.2", optional = true }
-async-std = { version = "1.10.0", features = ["unstable"] }
+wasm-bindgen = "0.2.83"
 wasm-bindgen-futures = "0.4.32"
+nannou = { version="0.18.1", git ="https://github.com/nannou-org/nannou.git", rev = "287be8a4d075b17332ca0bf34649f5d25e751c00", features =["wasm-experimental"]}
+async-std = { version = "1.10.0", features = ["unstable"] }
+
 
 # The `web-sys` crate allows you to interact with the various browser APIs,
 # like the DOM.
@@ -55,8 +46,7 @@ features = ["console"]
 console_error_panic_hook = "0.1.5"
 
 # # These crates are used for running unit tests.
-# [dev-dependencies]
-# wasm-bindgen-test = "0.2.45"
-# futures = "0.1.27"
-# js-sys = "0.3.22"
-# wasm-bindgen-futures = "0.3.22"
+[dev-dependencies]
+wasm-bindgen-test = "0.3.33"
+futures = "0.1.27"
+js-sys = "0.3.22"

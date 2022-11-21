@@ -1,53 +1,25 @@
-// P_1_0_01
-//
-// Generative Gestaltung – Creative Coding im Web
-// ISBN: 978-3-87439-902-9, First Edition, Hermann Schmidt, Mainz, 2018
-// Benedikt Groß, Hartmut Bohnacker, Julia Laub, Claudius Lazzeroni
-// with contributions by Joey Lee and Niels Poldervaart
-// Copyright 2018
-//
-// http://www.generative-gestaltung.de
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-//
-/*
-* changing colors and size by moving the mouse
-*
-* MOUSE
-* position x          : size
-* position y          : color
-*
-* KEYS
-* s                   : save png
-*/
 
-use wasm_bindgen::prelude::wasm_bindgen;
+// Derived from the example in nature_of_code
+
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+//
+// Example 8-3: Simple Recursion
+
+use std::cell::RefCell;
+
+
 use nannou::prelude::*;
 use nannou::wgpu::{Backends, DeviceDescriptor, Limits};
-use std::cell::RefCell;
-#[cfg(not(target_arch = "wasm32"))]
-pub use async_std::task::spawn;
-
-#[cfg(target_arch = "wasm32")]
-pub use async_std::task::spawn_local as spawn;
-
-pub use async_std::task::block_on;
-
 
 pub struct Model;
 
 
-fn update(app: &App, model: &mut Model, _update: Update) {
+fn update(_app: &App, _model: &mut Model, _update: Update) {
 }
 
-fn view(app: &App, model: &Model, frame: Frame) {
+fn view(app: &App, _model: &Model, frame: Frame) {
     // Begin drawing
     let draw = app.draw();
     draw.background().color(WHITE);
@@ -76,19 +48,6 @@ fn draw_circle(draw: &Draw, x: f32, y: f32, r: f32) {
     }
 }
 
-
-#[wasm_bindgen]
-pub async fn run() ->bool{
-    #[cfg(debug_assertions)]
-    console_error_panic_hook::set_once();
-
-    let model = Model{};
-    block_on(async {
-        run_app(model).await;
-    });
-    
-    true
-}
 
 
 pub async fn run_app(model: Model) {
@@ -120,16 +79,15 @@ async fn create_window(app: &App) {
 
     app.new_window()
         .device_descriptor(device_desc)
-        .title("web test")
-        // .raw_event(model::raw_event)
+        .title("nannou web test")
+        // .raw_event(raw_event)
         // .key_pressed(key_pressed)
         // .key_released(key_released)
         // .mouse_pressed(mouse_pressed)
-        // .mouse_moved(model::mouse_moved)
-        // .mouse_released(model::mouse_released)
-        // .mouse_wheel(model::mouse_wheel)
-        // .touch(model::touch)
-
+        // .mouse_moved(mouse_moved)
+        // .mouse_released(mouse_released)
+        // .mouse_wheel(mouse_wheel)
+        // .touch(touch)
         .view(view)
         .build_async()
         .await

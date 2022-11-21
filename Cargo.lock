@@ -699,6 +699,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "00b0228411908ca8685dba7fc2cdd70ec9990a6e753e89b6ac91a84c40fbaf4b"
 
 [[package]]
+name = "futures"
+version = "0.1.31"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3a471a38ef8ed83cd6e40aa59c1ffe17db6855c18e3604d9c4ed8c08ebc28678"
+
+[[package]]
 name = "futures-channel"
 version = "0.3.25"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1124,12 +1130,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "memory_units"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8452105ba047068f40ff7093dd1d9da90898e63dd61736462e9cdda6a90ad3c3"
-
-[[package]]
 name = "metal"
 version = "0.23.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1201,6 +1201,7 @@ dependencies = [
 [[package]]
 name = "nannou"
 version = "0.18.1"
+source = "git+https://github.com/nannou-org/nannou.git?rev=287be8a4d075b17332ca0bf34649f5d25e751c00#287be8a4d075b17332ca0bf34649f5d25e751c00"
 dependencies = [
  "async-std",
  "find_folder",
@@ -1217,10 +1218,10 @@ dependencies = [
  "pennereq",
  "rusttype",
  "serde",
+ "serde_derive",
  "serde_json",
  "toml",
  "walkdir",
- "wasm-bindgen",
  "web-sys",
  "wgpu",
  "winit",
@@ -1229,6 +1230,7 @@ dependencies = [
 [[package]]
 name = "nannou_core"
 version = "0.18.0"
+source = "git+https://github.com/nannou-org/nannou.git?rev=287be8a4d075b17332ca0bf34649f5d25e751c00#287be8a4d075b17332ca0bf34649f5d25e751c00"
 dependencies = [
  "glam",
  "num-traits",
@@ -1239,27 +1241,31 @@ dependencies = [
 [[package]]
 name = "nannou_mesh"
 version = "0.18.0"
+source = "git+https://github.com/nannou-org/nannou.git?rev=287be8a4d075b17332ca0bf34649f5d25e751c00#287be8a4d075b17332ca0bf34649f5d25e751c00"
 dependencies = [
  "nannou_core",
  "serde",
 ]
 
 [[package]]
-name = "nannou_web_test"
-version = "0.1.0"
+name = "nannou_web_template"
+version = "0.0.1"
 dependencies = [
  "async-std",
  "console_error_panic_hook",
+ "futures",
+ "js-sys",
  "nannou",
  "wasm-bindgen",
  "wasm-bindgen-futures",
+ "wasm-bindgen-test",
  "web-sys",
- "wee_alloc",
 ]
 
 [[package]]
 name = "nannou_wgpu"
 version = "0.18.0"
+source = "git+https://github.com/nannou-org/nannou.git?rev=287be8a4d075b17332ca0bf34649f5d25e751c00#287be8a4d075b17332ca0bf34649f5d25e751c00"
 dependencies = [
  "async-std",
  "image",
@@ -2093,8 +2099,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eaf9f5aceeec8be17c128b2e93e031fb8a4d469bb9c4ae2d7dc1888b26887268"
 dependencies = [
  "cfg-if 1.0.0",
- "serde",
- "serde_json",
  "wasm-bindgen-macro",
 ]
 
@@ -2153,6 +2157,30 @@ name = "wasm-bindgen-shared"
 version = "0.2.83"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1c38c045535d93ec4f0b4defec448e4291638ee608530863b1e2ba115d4fff7f"
+
+[[package]]
+name = "wasm-bindgen-test"
+version = "0.3.33"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "09d2fff962180c3fadf677438054b1db62bee4aa32af26a45388af07d1287e1d"
+dependencies = [
+ "console_error_panic_hook",
+ "js-sys",
+ "scoped-tls",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "wasm-bindgen-test-macro",
+]
+
+[[package]]
+name = "wasm-bindgen-test-macro"
+version = "0.3.33"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4683da3dfc016f704c9f82cf401520c4f1cb3ee440f7f52b3d6ac29506a49ca7"
+dependencies = [
+ "proc-macro2",
+ "quote",
+]
 
 [[package]]
 name = "wayland-client"
@@ -2235,18 +2263,6 @@ checksum = "7b17e741662c70c8bd24ac5c5b18de314a2c26c32bf8346ee1e6f53de919c283"
 dependencies = [
  "js-sys",
  "wasm-bindgen",
-]
-
-[[package]]
-name = "wee_alloc"
-version = "0.4.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dbb3b5a6b2bb17cb6ad44a2e68a43e8d2722c997da10e928665c72ec6c0a0b8e"
-dependencies = [
- "cfg-if 0.1.10",
- "libc",
- "memory_units",
- "winapi",
 ]
 
 [[package]]

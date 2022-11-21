@@ -1,3 +1,3 @@
 import("../pkg/index.js").then(module =>{
-   console.log( module.run());
+   module.main_web();
 });
