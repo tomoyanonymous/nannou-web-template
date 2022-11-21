@@ -7,16 +7,18 @@
 //
 // Example 8-3: Simple Recursion
 
-use std::cell::RefCell;
 
 
 use nannou::prelude::*;
+
+use std::cell::RefCell;
 use nannou::wgpu::{Backends, DeviceDescriptor, Limits};
 
 pub struct Model;
 
 
 fn update(_app: &App, _model: &mut Model, _update: Update) {
+
 }
 
 fn view(app: &App, _model: &Model, frame: Frame) {

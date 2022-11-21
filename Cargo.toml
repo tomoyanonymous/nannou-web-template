@@ -28,8 +28,8 @@ lto = true
 # to interact with JavaScript.
 wasm-bindgen = "0.2.83"
 wasm-bindgen-futures = "0.4.32"
-nannou = { version="0.18.1", git ="https://github.com/nannou-org/nannou.git", rev = "287be8a4d075b17332ca0bf34649f5d25e751c00", features =["wasm-experimental"]}
 async-std = { version = "1.10.0", features = ["unstable"] }
+nannou = { version="0.18.1", git ="https://github.com/nannou-org/nannou.git", rev = "287be8a4d075b17332ca0bf34649f5d25e751c00", features =["wasm-experimental"]}
 
 
 # The `web-sys` crate allows you to interact with the various browser APIs,
