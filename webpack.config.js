@@ -20,6 +20,7 @@ module.exports = {
     index: "./js/index.js"
   },
   output: {
+    hashFunction: "xxhash64",
     path: dist,
     filename: "[name].js"
   },
