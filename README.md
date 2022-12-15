@@ -64,6 +64,20 @@ cargo run
 npm start
 ```
 
+if you encounter the error like below, 
+
+```js
+ERR_OSSL_EVP_UNSUPPORTED
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+Error: error:0308010C:digital envelope routines::unsupported
+```
+
+Try the command with an environment variable like this. (See #1)
+
+ `NODE_OPTIONS=--openssl-legacy-provider npm start`
+
 ## How to build in release mode(for browser)
 
 ```sh
