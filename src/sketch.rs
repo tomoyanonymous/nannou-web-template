@@ -1,4 +1,3 @@
-
 // Derived from the example in nature_of_code
 
 // The Nature of Code
@@ -7,19 +6,14 @@
 //
 // Example 8-3: Simple Recursion
 
-
+use std::cell::RefCell;
 
 use nannou::prelude::*;
-
-use std::cell::RefCell;
 use nannou::wgpu::{Backends, DeviceDescriptor, Limits};
 
 pub struct Model;
 
-
-fn update(_app: &App, _model: &mut Model, _update: Update) {
-
-}
+fn update(_app: &App, _model: &mut Model, _update: Update) {}
 
 fn view(app: &App, _model: &Model, frame: Frame) {
     // Begin drawing
@@ -50,8 +44,6 @@ fn draw_circle(draw: &Draw, x: f32, y: f32, r: f32) {
     }
 }
 
-
-
 pub async fn run_app(model: Model) {
     // Since ModelFn is not a closure we need this workaround to pass the calculated model
     thread_local!(static MODEL: RefCell<Option<Model>> = Default::default());
@@ -64,10 +56,10 @@ pub async fn run_app(model: Model) {
             MODEL.with(|m| m.borrow_mut().take().unwrap())
         })
     })
-    .backends(Backends::PRIMARY | Backends::GL)
-    .update(update)
-    .run_async()
-    .await;
+        .backends(Backends::PRIMARY | Backends::GL)
+        .update(update)
+        .run_async()
+        .await;
 }
 
 async fn create_window(app: &App) {
@@ -95,5 +87,3 @@ async fn create_window(app: &App) {
         .await
         .unwrap();
 }
-
-
