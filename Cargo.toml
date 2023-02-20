@@ -6,7 +6,7 @@ version = "0.0.1"
 authors = ["You <you@example.com>"]
 categories = ["wasm"]
 readme = "README.md"
-edition = "2018"
+edition = "2021"
 resolver = "2" 
 
 [[bin]]
